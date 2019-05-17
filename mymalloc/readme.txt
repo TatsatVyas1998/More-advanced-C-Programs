@@ -1,4 +1,4 @@
-In this project i have made my own malloc to gain deeper understanding dynamically allocating memory. This was a group project and we both learned a lot from this project. 
+In this project i have made my own malloc to gain deeper understanding dynamically allocating memory. This was a group project and we both learned a lot from it. 
 
 bigblock[MEMORY] is a data buffer from which we will malloc and
 free using mymalloc and myfree functions. MEMORY is the size of
