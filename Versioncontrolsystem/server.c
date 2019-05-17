@@ -310,7 +310,7 @@ void lockandupdate(char * projectname , int c){
 	pthread_mutex_t  mutex ;
 	int x = getmutex(projectname);
 	mutex = mutexptr[x];
-	 
+	pthread_mutex_lock( &mutex);
 	char message[100]; 
 	char history[100];
 	char arr[1026];
@@ -438,6 +438,7 @@ void lockandupdate(char * projectname , int c){
 	pthread_mutex_t  mutex ;
 	int x = getmutex(project);
 	mutex = mutexptr[x];
+	pthread_mutex_lock( &mutex);
 	char message[40];
 	char n[20];
 	char file[100];
@@ -573,6 +574,7 @@ void sendmanifest(char *projectname, int a){
     pthread_mutex_t  mutex ;
 	int x = getmutex(projectname);
 	mutex = mutexptr[x];
+	pthread_mutex_lock( &mutex);
 	char  c[100] = "./server_repo";
 	strcat(c , "/");
 	strcat ( c, projectname);
@@ -599,7 +601,7 @@ void sendproject(char * projectname, int a){ // creates the .tar file in the mai
 	pthread_mutex_t  mutex ;
 	int x = getmutex(projectname);
 	mutex = mutexptr[x];
-	
+	pthread_mutex_lock( &mutex);
 	char  c[100] = "tar -C ";
 	strcat( c , "./server_repo/");
 	strcat(c , projectname);
@@ -666,6 +668,7 @@ void getcommit(char * projectname, int a){
 	pthread_mutex_t  mutex ;
 	int x = getmutex(projectname);
 	mutex = mutexptr[x];
+	pthread_mutex_lock( &mutex);
 	int c = commitval(projectname);
 	char arr[100] = "./server_repo/";
 	strcat( arr , projectname); 
@@ -708,7 +711,7 @@ void sendupgrade( char * projectname , int a){
 	pthread_mutex_t  mutex ;
 	int x = getmutex(projectname);
 	mutex = mutexptr[x];
-	 
+	pthread_mutex_lock( &mutex);
 	char arr[100]= "./server_repo/";
 	strcat( arr , projectname);
 	char dirn[100]= "./server_repo/0";
@@ -833,6 +836,7 @@ void sendhistory( char * projectname ,int  client){
 	pthread_mutex_t  mutex ;
 	int x = getmutex(projectname);
 	mutex = mutexptr[x];
+	pthread_mutex_lock( &mutex);
 	char arr[100] = "./server_repo/0";
 	strcat( arr, projectname);
 	strcat( arr, "/history");
@@ -851,6 +855,7 @@ void sendcur( char * projectname ,int  client){
 	pthread_mutex_t  mutex ;
 	int x = getmutex(projectname);
 	mutex = mutexptr[x];
+	pthread_mutex_lock( &mutex);
 	char arr[100] = "./server_repo/";
 	strcat( arr, projectname);
 	strcat( arr, "/Manifest");
