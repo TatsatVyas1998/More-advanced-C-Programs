@@ -1,6 +1,6 @@
-WTF WTFserver: WTF.c WTFserver.c
-	gcc -g -lm -Wall -Werror -fsanitize=address WTF.c -o WTF -lcrypto -lssl
-	gcc -g -lm -Wall -Werror -fsanitize=address WTFserver.c -pthread -o WTFserver -lcrypto -lssl
+client server: client.c server.c
+	gcc -g -lm -Wall -Werror -fsanitize=address client.c -o client -lcrypto -lssl
+	gcc -g -lm -Wall -Werror -fsanitize=address server.c -pthread -o server -lcrypto -lssl
 
 clean:
-	rm -f WTFserver WTF
+	rm -f server client
